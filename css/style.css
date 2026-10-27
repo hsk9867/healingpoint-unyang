@@ -75,6 +75,8 @@ html.scl-lock, body.scl-lock { overflow: hidden; }
 /* loading */
 .loading { position: fixed; inset: 0; z-index: 3000; display: flex; justify-content: center; align-items: center; background: #231F20; transition: opacity .6s ease, visibility .6s ease; }
 .loading.off { opacity: 0; visibility: hidden; }
+.loading-inner { display: flex; flex-direction: column; align-items: center; gap: 24rem; }
+.loading .mark { width: 72rem; opacity: .9; animation: pulse 1.4s ease-in-out infinite; }
 .loading .txt { font-family: var(--eng-font); font-size: 18rem; letter-spacing: 6rem; color: rgba(255,255,255,.6); animation: pulse 1.4s ease-in-out infinite; }
 @keyframes pulse { 0%, 100% { opacity: .35; } 50% { opacity: 1; } }
 
@@ -84,7 +86,12 @@ html.scl-lock, body.scl-lock { overflow: hidden; }
 header { position: fixed; left: 0; top: 0; width: 100%; height: var(--head-height); transition: top .4s ease, background-color .4s ease; z-index: 1000; background: #fff; }
 header.hide { top: calc(-1 * var(--head-height)) !important; }
 header .logo { position: absolute; top: 50%; left: 72rem; transform: translateY(-50%); z-index: 10; }
-header .logo a, .sitemap-logo, .footer-logo { display: flex; flex-direction: column; align-items: center; font-family: var(--eng-font); color: #111; text-transform: uppercase; line-height: 1; }
+header .logo a, .sitemap-logo { display: flex; flex-direction: row; align-items: center; gap: 12rem; font-family: var(--eng-font); color: #111; text-transform: uppercase; line-height: 1; }
+header .logo a .txt, .sitemap-logo .txt { display: flex; flex-direction: column; align-items: center; }
+header .logo a .mark, .sitemap-logo .mark { display: block; height: 44rem; width: auto; filter: brightness(0); transition: filter .4s ease; }
+header.wht .logo a .mark { filter: none; }
+.footer-logo { display: flex; flex-direction: column; align-items: center; font-family: var(--eng-font); color: #fff; text-transform: uppercase; line-height: 1; }
+.footer-logo .mark { display: block; height: 56rem; width: auto; margin-bottom: 20rem; }
 header .logo a .l1, .sitemap-logo .l1, .footer-logo .l1 { font-size: 18rem; font-weight: 500; letter-spacing: 3.4rem; }
 header .logo a .l2, .sitemap-logo .l2, .footer-logo .l2 { font-size: 17rem; font-weight: 500; letter-spacing: 8rem; margin-top: 5rem; padding-left: 8rem; }
 header nav { position: relative; width: 100%; height: 100%; text-align: center; z-index: 2; }
@@ -141,6 +148,9 @@ header .btn-menu-mo, header .btn-login-mo { display: none; }
 @media screen and (max-width: 1024px) {
   header { z-index: 1002 !important; }
   header .logo { left: 20rem; }
+  header .logo a { gap: 8rem; }
+  header .logo a .mark { height: 30rem; }
+  header:has(nav.show) .logo a .mark { filter: none; }
   header .logo a .l1 { font-size: 13rem; letter-spacing: 2.4rem; }
   header .logo a .l2 { font-size: 12rem; letter-spacing: 6rem; margin-top: 3rem; padding-left: 6rem; }
   header:has(nav.show) .logo a { color: #fff; }
@@ -211,6 +221,8 @@ header .btn-menu-mo, header .btn-login-mo { display: none; }
 #main .sec-visual .visual-txt > div span { display: inline-block; overflow: hidden; padding: 0 .02em; }
 #main .sec-visual .visual-txt > div span i { display: block; font-style: normal; font-family: var(--eng-font); font-weight: 500; font-size: 124rem; line-height: 1.08; letter-spacing: 10rem; color: #fff; transform: translateY(110%); }
 #main .sec-visual .visual-txt > div span.sp { width: 48rem; }
+#main .sec-visual .visual-txt .line-0 { margin-bottom: 16rem; }
+#main .sec-visual .visual-txt .hero-mark { height: 88rem; width: auto; opacity: 0; transform: translateY(20rem); filter: drop-shadow(0 4rem 16rem rgba(0,0,0,.35)); }
 #main .sec-visual .swiper { transform: scale(1.2); }
 #main .sec-visual .swiper .swiper-slide { overflow: hidden; }
 #main .sec-visual .swiper .img-box { position: relative; width: 100%; height: 100vh; }
@@ -238,6 +250,8 @@ header .btn-menu-mo, header .btn-login-mo { display: none; }
   #main .sec-visual .visual-txt { top: 28%; gap: 4rem; }
   #main .sec-visual .visual-txt > div span i { font-size: 44rem; letter-spacing: 3rem; }
   #main .sec-visual .visual-txt > div span.sp { width: 14rem; }
+  #main .sec-visual .visual-txt .line-0 { margin-bottom: 8rem; }
+  #main .sec-visual .visual-txt .hero-mark { height: 48rem; }
   #main .sec-visual .swiper .img-box { height: 100vh; min-height: 400rem; }
   #main .sec-visual .visual-sub { bottom: 110rem; font-size: 15rem; }
   #main .sec-visual .ctr-box { bottom: 0; }

@@ -12,7 +12,7 @@
 
   /* ---------- hero letters ---------- */
   const lines = [['HEALING', 'POINT'], ['GYM', 'UNYANG']];
-  $$('.sec-visual .visual-txt > div').forEach((div, i) => {
+  $$('.sec-visual .visual-txt > div.line-1, .sec-visual .visual-txt > div.line-2').forEach((div, i) => {
     const words = lines[i];
     words.forEach((w, wi) => {
       w.split('').forEach(ch => {
@@ -191,7 +191,8 @@
     }
   });
   introTl
-    .to('.sec-visual .visual-txt span i', { y: 0, duration: 0.8, stagger: 0.05, ease: 'power2.inOut' })
+    .to('.sec-visual .visual-txt .hero-mark', { opacity: 1, y: 0, duration: 0.9, ease: 'power2.out' })
+    .to('.sec-visual .visual-txt span i', { y: 0, duration: 0.8, stagger: 0.05, ease: 'power2.inOut' }, '-=0.5')
     .to('.sec-visual .swiper', { scale: 1, duration: 3, ease: 'power2.inOut' }, '<')
     .to('.sec-visual .visual-sub', { opacity: 1, y: 0, duration: 1, ease: 'power2.out' }, '-=2');
 
