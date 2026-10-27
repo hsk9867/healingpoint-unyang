@@ -11,7 +11,7 @@
   gsap.registerPlugin(ScrollTrigger);
 
   /* ---------- hero letters ---------- */
-  const lines = [['HEALING', 'POINT'], ['GYM', 'UNYANG']];
+  const lines = [['HEALING', 'POINT'], ['GYM']];
   $$('.sec-visual .visual-txt > div.line-1, .sec-visual .visual-txt > div.line-2').forEach((div, i) => {
     const words = lines[i];
     words.forEach((w, wi) => {
