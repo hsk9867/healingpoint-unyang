@@ -15,13 +15,13 @@
     initScrollIndicator();
     initAnchors();
     if (window.ScrollTrigger) ScrollTrigger.refresh();
-    if (window.AOS) AOS.init({ duration: 800, easing: 'ease-out-cubic', once: false });
+    if (window.AOS) AOS.init({ duration: 500, easing: 'ease-out-cubic', once: false, offset: 80 });
   });
 
   /* ---------- Lenis smooth scroll ---------- */
   function initLenis() {
     if (!window.Lenis) return;
-    lenis = new Lenis({ smooth: true, duration: 1, wheelMultiplier: 1.0, touchMultiplier: 2, lerp: 0.1 });
+    lenis = new Lenis({ smooth: true, duration: 0.6, wheelMultiplier: 1.2, touchMultiplier: 2, lerp: 0.16 });
     function raf(time) { lenis.raf(time); if (window.AOS) AOS.refresh(); requestAnimationFrame(raf); }
     requestAnimationFrame(raf);
     lenis.on('scroll', () => { if (window.ScrollTrigger) ScrollTrigger.update(); });
@@ -29,7 +29,7 @@
   }
 
   function scrollToTarget(target, offset) {
-    if (lenis) lenis.scrollTo(target, { offset: offset || 0, duration: 1.2, easing: t => 1 - Math.pow(1 - t, 3) });
+    if (lenis) lenis.scrollTo(target, { offset: offset || 0, duration: 0.8, easing: t => 1 - Math.pow(1 - t, 3) });
     else {
       const top = typeof target === 'number' ? target : target.getBoundingClientRect().top + window.scrollY + (offset || 0);
       window.scrollTo({ top, behavior: 'smooth' });
@@ -117,7 +117,7 @@
       const tabs = container.querySelectorAll('.tab-menu li');
       if (!swiperEl) return;
       const swiper = new Swiper(swiperEl, {
-        slidesPerView: 2, spaceBetween: 10, slidesPerGroup: 1, speed: 600,
+        slidesPerView: 2, spaceBetween: 10, slidesPerGroup: 1, speed: 400,
         breakpoints: { 1000: { slidesPerView: 2, spaceBetween: 30 }, 1600: { slidesPerView: 3, spaceBetween: 30 } }
       });
       function setActive(index) {
@@ -143,9 +143,9 @@
   /* ---------- brand / review swipers ---------- */
   function initCardSwipers() {
     const brandEl = document.querySelector('.brand-swiper');
-    if (brandEl) new Swiper(brandEl, { slidesPerView: 1, spaceBetween: 20, speed: 600, breakpoints: { 768: { slidesPerView: 2 } } });
+    if (brandEl) new Swiper(brandEl, { slidesPerView: 1, spaceBetween: 20, speed: 400, breakpoints: { 768: { slidesPerView: 2 } } });
     const reviewEl = document.querySelector('.review-swiper');
-    if (reviewEl) new Swiper(reviewEl, { slidesPerView: 1, spaceBetween: 20, speed: 600, breakpoints: { 768: { slidesPerView: 2 }, 1200: { slidesPerView: 3 } } });
+    if (reviewEl) new Swiper(reviewEl, { slidesPerView: 1, spaceBetween: 20, speed: 400, breakpoints: { 768: { slidesPerView: 2 }, 1200: { slidesPerView: 3 } } });
   }
 
   /* ---------- rolling text ---------- */

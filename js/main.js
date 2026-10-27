@@ -130,9 +130,9 @@
 
   /* ---------- visual swiper ---------- */
   let isPaused = false, slideTimer = null, progressTween = null, pausedProgress = 0;
-  const DUR = 2.5;
+  const DUR = 1.8;
   const visualSwiper = new Swiper('.sec-visual .swiper', {
-    parallax: true, speed: 1000, allowTouchMove: false, loop: true, observer: true, observeParents: true,
+    parallax: true, speed: 700, allowTouchMove: false, loop: true, observer: true, observeParents: true,
     on: {
       init() {
         const total = $$('.sec-visual .swiper-slide:not(.swiper-slide-duplicate)').length;
