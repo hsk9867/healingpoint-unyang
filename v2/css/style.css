@@ -101,14 +101,16 @@ html.lenis, html.lenis body { height: auto; }
 .main-visual { position: relative; width: 100%; height: 100vh; background: #000; color: #fff; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
 .main-visual .title { z-index: 2; position: relative; }
 .main-visual .brand-logo { flex-direction: column; gap: 22px; margin-bottom: clamp(28px, 2.6vw, 50px); }
-.main-visual .brand-logo .mark { height: clamp(96px, 10vw, 180px); width: auto; filter: drop-shadow(0 8px 30px rgba(0,0,0,.4)); }
+.main-visual .brand-logo .mark { height: clamp(96px, 10vw, 180px); width: auto; filter: drop-shadow(0 8px 30px rgba(0,0,0,.6)); }
 .main-visual .brand-logo .word { align-items: center; }
-.main-visual .brand-logo .word strong { font-size: clamp(16px, 1.4vw, 26px); font-weight: 600; letter-spacing: .32em; padding-left: .32em; }
-.main-visual .brand-logo .word em { font-size: clamp(13px, 1.1vw, 20px); font-weight: 500; letter-spacing: .7em; padding-left: .7em; margin-top: 8px; }
-.main-visual .title h2 { color: #fff; }
-.main-visual .title p { color: rgba(255,255,255,.75); font-size: clamp(14px, 0.9vw, 17px); margin-top: clamp(12px, 1.2vw, 22px); letter-spacing: 0; }
+.main-visual .brand-logo .word { text-shadow: 0 2px 18px rgba(0,0,0,.75), 0 1px 3px rgba(0,0,0,.6); }
+.main-visual .brand-logo .word strong { font-size: clamp(20px, 1.8vw, 34px); font-weight: 700; letter-spacing: .32em; padding-left: .32em; }
+.main-visual .brand-logo .word em { font-size: clamp(15px, 1.3vw, 24px); font-weight: 600; letter-spacing: .7em; padding-left: .7em; margin-top: 8px; }
+.main-visual .title h2 { color: #fff; text-shadow: 0 2px 18px rgba(0,0,0,.7), 0 1px 3px rgba(0,0,0,.5); }
+.main-visual .title p { color: rgba(255,255,255,.9); text-shadow: 0 1px 10px rgba(0,0,0,.7); font-size: clamp(14px, 0.9vw, 17px); margin-top: clamp(12px, 1.2vw, 22px); letter-spacing: 0; }
 .main-visual .bg { width: 100%; height: 100%; position: absolute; left: 0; top: 0; z-index: 0; }
-.main-visual .bg:before { content: ''; width: 100%; height: 100%; position: absolute; left: 0; top: 0; background-image: linear-gradient(0deg, #050B14, rgba(5,11,20,.25) 55%, rgba(5,11,20,.45)); z-index: 1; }
+.main-visual .bg:before { content: ''; width: 100%; height: 100%; position: absolute; left: 0; top: 0; background-image: linear-gradient(0deg, #050B14, rgba(5,11,20,.5) 55%, rgba(5,11,20,.6)); z-index: 1; }
+.main-visual .bg:after { content: ''; position: absolute; left: 50%; top: 50%; width: min(1100px, 120vw); height: min(900px, 110vh); transform: translate(-50%, -50%); background: radial-gradient(ellipse at center, rgba(5,11,20,.6) 0%, rgba(5,11,20,.35) 45%, rgba(5,11,20,0) 72%); z-index: 1; pointer-events: none; }
 .main-visual .bg img { width: 100%; height: 100%; object-fit: cover; animation: visualZoom 12s ease-in-out infinite alternate; }
 @keyframes visualZoom { from { transform: scale(1); } to { transform: scale(1.1); } }
 .main-visual .scroll { font-size: 14px; color: #fff; position: absolute; bottom: 30px; left: 0; right: 0; margin: 0 auto; font-weight: 400; letter-spacing: 0; z-index: 2; text-align: center; }
