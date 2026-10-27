@@ -247,6 +247,34 @@ header .btn-menu-mo, header .btn-login-mo { display: none; }
 }
 
 /* =========================================================
+   Why Healing Point (sec-points)
+   ========================================================= */
+#main .sec-points { position: relative; padding: 200rem 0 40rem; background: #fff; }
+#main .sec-points .points-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 64rem; margin-bottom: 120rem; }
+#main .sec-points .cert-box { position: relative; width: 560rem; flex: none; }
+#main .sec-points .cert-box img { display: block; width: 100%; box-shadow: 24rem 24rem 48rem rgba(0,0,0,.14); }
+#main .sec-points .cert-box .cert-cap { display: block; margin-top: 16rem; color: #6E7072; }
+#main .sec-points .point-list { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 2px solid #231F20; }
+#main .sec-points .point-list li { position: relative; padding: 40rem 32rem 48rem 0; border-right: 1px solid rgba(35,31,32,.12); }
+#main .sec-points .point-list li:not(:first-child) { padding-left: 32rem; }
+#main .sec-points .point-list li:last-child { border-right: 0; padding-right: 0; }
+#main .sec-points .point-list .num { display: block; font-family: var(--eng-font); font-size: 20rem; font-weight: 500; letter-spacing: 1rem; color: var(--brandColor); }
+#main .sec-points .point-list strong { display: block; margin-top: 28rem; min-height: calc(26rem * 1.4 * 2); color: #231F20; }
+#main .sec-points .point-list p { margin-top: 20rem; color: #535455; }
+@media screen and (max-width: 1024px) {
+  #main .sec-points { padding: 120rem 0 0; }
+  #main .sec-points .points-top { flex-direction: column; align-items: stretch; gap: 48rem; margin-bottom: 64rem; }
+  #main .sec-points .cert-box { width: 100%; }
+  #main .sec-points .cert-box img { box-shadow: 12rem 12rem 24rem rgba(0,0,0,.12); }
+  #main .sec-points .point-list { grid-template-columns: 1fr; }
+  #main .sec-points .point-list li { padding: 28rem 0 32rem; border-right: 0; border-bottom: 1px solid rgba(35,31,32,.12); }
+  #main .sec-points .point-list li:not(:first-child) { padding-left: 0; }
+  #main .sec-points .point-list strong { margin-top: 12rem; min-height: 0; }
+  #main .sec-points .point-list strong br { display: none; }
+  #main .sec-points .point-list p { margin-top: 10rem; }
+}
+
+/* =========================================================
    Program (sec-service)
    ========================================================= */
 #main .sec-service { position: relative; padding: 240rem 0; }

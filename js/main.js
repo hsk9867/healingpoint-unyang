@@ -237,6 +237,10 @@
     if (btn) tl.fromTo(btn, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power2.inOut' }, '-=0.7');
   });
 
+  /* ---------- why healing point ---------- */
+  gsap.fromTo('.sec-points .cert-box', { clipPath: 'inset(0% 0% 100% 0%)', y: 60 }, { clipPath: 'inset(0% 0% 0% 0%)', y: 0, duration: 1.3, ease: 'power2.inOut', scrollTrigger: { trigger: '.sec-points .cert-box', start: 'top 80%' } });
+  gsap.fromTo('.sec-points .point-list li', { y: 80, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.12, duration: 1, ease: 'power2.out', scrollTrigger: { trigger: '.sec-points .point-list', start: 'top 80%' } });
+
   /* ---------- program ---------- */
   mm.add('(min-width: 1025px)', () => {
     gsap.timeline({ scrollTrigger: { trigger: '.sec-service .cont-2', start: 'top 10%', end: 'bottom top', scrub: 1 } })
