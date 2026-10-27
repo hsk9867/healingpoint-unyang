@@ -219,14 +219,15 @@ header .btn-menu-mo, header .btn-login-mo { display: none; }
 #main .sec-visual .visual-txt { position: absolute; left: 0; top: 60rem; width: 100%; display: flex; justify-content: center; flex-direction: column; gap: 10rem; z-index: 2; pointer-events: none; }
 #main .sec-visual .visual-txt > div { display: flex; justify-content: center; align-items: center; }
 #main .sec-visual .visual-txt > div span { display: inline-block; overflow: hidden; padding: 0 .02em; }
-#main .sec-visual .visual-txt > div span i { display: block; font-style: normal; font-family: var(--eng-font); font-weight: 600; font-size: 124rem; line-height: 1.08; letter-spacing: 10rem; color: #fff; text-shadow: 0 4rem 28rem rgba(0,0,0,.7), 0 1rem 4rem rgba(0,0,0,.5); transform: translateY(110%); }
+#main .sec-visual .visual-txt > div span i { display: block; font-style: normal; font-family: var(--eng-font); font-weight: 600; font-size: 124rem; line-height: 1.08; letter-spacing: 10rem; color: #fff; text-shadow: 0 4rem 32rem rgba(0,0,0,.9), 0 2rem 6rem rgba(0,0,0,.7); transform: translateY(110%); }
 #main .sec-visual .visual-txt > div span.sp { width: 48rem; }
 #main .sec-visual .visual-txt .line-0 { margin-bottom: 16rem; }
 #main .sec-visual .visual-txt .hero-mark { height: 88rem; width: auto; opacity: 0; transform: translateY(20rem); filter: drop-shadow(0 4rem 16rem rgba(0,0,0,.35)); }
 #main .sec-visual .swiper { transform: scale(1.2); }
 #main .sec-visual .swiper .swiper-slide { overflow: hidden; }
 #main .sec-visual .swiper .img-box { position: relative; width: 100%; height: 100vh; }
-#main .sec-visual .swiper .img-box::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.3) 45%, rgba(0,0,0,.55) 100%); }
+#main .sec-visual .swiper .img-box::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.7) 0%, rgba(0,0,0,.4) 45%, rgba(0,0,0,.65) 100%); }
+#main .sec-visual::after { content: ''; position: absolute; left: 50%; top: 0; width: min(1500rem, 100vw); height: 620rem; transform: translateX(-50%); background: radial-gradient(ellipse at center 40%, rgba(0,0,0,.6) 0%, rgba(0,0,0,.3) 45%, rgba(0,0,0,0) 72%); z-index: 1; pointer-events: none; }
 #main .sec-visual .swiper .img-box img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
 #main .sec-visual .visual-sub { position: absolute; left: 0; bottom: 250rem; width: 100%; text-align: center; color: #fff; text-shadow: 0 2rem 12rem rgba(0,0,0,.7); font-size: 20rem; letter-spacing: -0.4rem; font-weight: 500; z-index: 2; opacity: 0; }
 
