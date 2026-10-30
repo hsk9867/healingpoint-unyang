@@ -652,3 +652,30 @@ footer .copyright { width: 100%; margin-top: 40rem; font-size: 16rem; line-heigh
   #main .sec-ownthe100 .row-2c > div { width: 100%; }
   #main .sec-ownthe100 .row-3 { margin-top: 64rem; }
 }
+
+/* 시설 안내: 한 줄 제목 + 3열 그리드 + 더보기 */
+#main .sec-ownthe100 .fac-tit { margin-bottom: 48rem; }
+#main .sec-ownthe100 .fac-tit .tit.ko-tit { font-size: 64rem; }
+#main .sec-ownthe100 .row-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16rem; margin-bottom: 0; }
+#main .sec-ownthe100 .row-grid .cont-box { width: auto; margin: 0; }
+#main .sec-ownthe100 .row-grid .cont-box .cap { height: auto; aspect-ratio: 4 / 3; padding: 20rem 22rem; }
+#main .sec-ownthe100 .row-grid .cont-box .cap span { font-size: 12rem; padding: 5rem 10rem; letter-spacing: 1.5rem; }
+#main .sec-ownthe100 .row-grid .cont-box.extra { display: none; }
+#main .sec-ownthe100 .row-grid.open .cont-box.extra { display: block; }
+#main .sec-ownthe100 .more-btn { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4rem; width: 100%; height: 100%; background: rgba(0,0,0,.55); color: #fff; cursor: pointer; transition: background .3s; }
+#main .sec-ownthe100 .more-btn:hover { background: rgba(0,0,0,.4); }
+#main .sec-ownthe100 .more-btn strong { font-family: var(--eng-font); font-size: 40rem; font-weight: 500; line-height: 1; }
+#main .sec-ownthe100 .more-btn span { font-size: 15rem; font-weight: 600; letter-spacing: -0.3rem; }
+#main .sec-ownthe100 .row-grid.open .more-btn { display: none; }
+#main .sec-ownthe100 .row-grid + .row-3 { margin-top: 160rem; }
+@media screen and (max-width: 1024px) {
+  #main .sec-ownthe100 .fac-tit { margin-bottom: 24rem; }
+  #main .sec-ownthe100 .fac-tit .tit.ko-tit { font-size: 36rem; }
+  #main .sec-ownthe100 .row-grid { gap: 8rem; }
+  #main .sec-ownthe100 .row-grid .cont-box { margin-bottom: 0; }
+  #main .sec-ownthe100 .row-grid .cont-box .cap { aspect-ratio: 1 / 1; padding: 10rem; }
+  #main .sec-ownthe100 .row-grid .cont-box .cap span { font-size: 9rem; padding: 3rem 6rem; letter-spacing: .8rem; }
+  #main .sec-ownthe100 .more-btn strong { font-size: 24rem; }
+  #main .sec-ownthe100 .more-btn span { font-size: 12rem; }
+  #main .sec-ownthe100 .row-grid + .row-3 { margin-top: 64rem; }
+}

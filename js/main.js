@@ -291,6 +291,16 @@
   });
   if ($('.sec-ownthe100 .spec-list')) gsap.fromTo('.sec-ownthe100 .spec-list li', { y: 60, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.08, duration: 0.9, ease: 'power2.out', scrollTrigger: { trigger: '.sec-ownthe100 .spec-list', start: 'top 80%' } });
 
+  /* ---------- facility more ---------- */
+  const facGrid = $('#facGrid'), facMore = $('#facGrid .more-btn');
+  if (facGrid && facMore) {
+    facMore.addEventListener('click', () => {
+      facGrid.classList.add('open');
+      facMore.setAttribute('aria-expanded', 'true');
+      if (window.ScrollTrigger) ScrollTrigger.refresh();
+    });
+  }
+
   /* ---------- review ---------- */
   new Swiper('.sec-now .swiper', {
     slidesPerView: 1.2, spaceBetween: 24, freeMode: true,
