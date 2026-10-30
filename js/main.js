@@ -240,10 +240,9 @@
 
   /* ---------- program ---------- */
   mm.add('(min-width: 1025px)', () => {
-    gsap.timeline({ scrollTrigger: { trigger: '.sec-service .cont-2', start: 'top 10%', end: 'bottom top', scrub: 1 } })
-      .to('.sec-service .cont-1', { y: -150 })
-      .to('.sec-service .cont-2', { y: 50 }, '<')
-      .to('.sec-service .cont-3', { y: -250 }, '<');
+    gsap.timeline({ scrollTrigger: { trigger: '.sec-service .cont-1', start: 'top 10%', end: 'bottom top', scrub: 1 } })
+      .to('.sec-service .cont-1', { y: -120 })
+      .to('.sec-service .cont-3', { y: -220 }, '<');
   });
   $$('.sec-service .cont-box').forEach(target => {
     gsap.timeline({ scrollTrigger: { trigger: target, start: 'top 60%' } })
