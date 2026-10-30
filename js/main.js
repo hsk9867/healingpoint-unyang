@@ -255,22 +255,25 @@
     animation: gsap.fromTo('.sec-service .btn-area a', { y: '100rem', opacity: 0 }, { y: '0', opacity: 1, duration: 1.2, ease: 'power2.inOut' })
   });
 
-  /* ---------- membership ---------- */
-  new Swiper('.sec-membership .swiper', {
-    slidesPerView: 1.2, spaceBetween: 4, freeMode: true,
-    scrollbar: { el: '.sec-membership .swiper-scrollbar', hide: true },
-    breakpoints: { 1024: { slidesPerView: 3 }, 700: { slidesPerView: 2.5 } }
-  });
-  ScrollTrigger.create({
-    trigger: '.sec-membership', start: 'top 70%',
-    animation: gsap.fromTo('.sec-membership .bg', { y: '200rem', opacity: 0 }, { y: '0', opacity: 1, duration: 1.2, ease: 'power2.inOut' })
-  });
-  ScrollTrigger.create({
-    trigger: '.sec-membership', start: 'top bottom', end: 'bottom top', scrub: 1,
-    animation: gsap.to('.sec-membership .bg', { top: '-200rem' })
-  });
-  gsap.timeline({ scrollTrigger: { trigger: '.sec-membership .swiper', start: 'top 70%' } })
-    .fromTo('.sec-membership .cont-box', { clipPath: 'inset(0% 100% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', stagger: 0.2, duration: 1.2, ease: 'power2.inOut' });
+  /* ---------- membership (섹션 삭제됨, 있을 때만 실행) ---------- */
+  if ($('.sec-membership')) {
+    new Swiper('.sec-membership .swiper', {
+      slidesPerView: 1.2, spaceBetween: 4, freeMode: true,
+      scrollbar: { el: '.sec-membership .swiper-scrollbar', hide: true },
+      breakpoints: { 1024: { slidesPerView: 3 }, 700: { slidesPerView: 2.5 } }
+    });
+    ScrollTrigger.create({
+      trigger: '.sec-membership', start: 'top 70%',
+      animation: gsap.fromTo('.sec-membership .bg', { y: '200rem', opacity: 0 }, { y: '0', opacity: 1, duration: 1.2, ease: 'power2.inOut' })
+    });
+    ScrollTrigger.create({
+      trigger: '.sec-membership', start: 'top bottom', end: 'bottom top', scrub: 1,
+      animation: gsap.to('.sec-membership .bg', { top: '-200rem' })
+    });
+    gsap.timeline({ scrollTrigger: { trigger: '.sec-membership .swiper', start: 'top 70%' } })
+      .fromTo('.sec-membership .cont-box', { clipPath: 'inset(0% 100% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', stagger: 0.2, duration: 1.2, ease: 'power2.inOut' });
+
+  }
 
   /* ---------- facility ---------- */
   mm.add('(min-width: 1025px)', () => {
