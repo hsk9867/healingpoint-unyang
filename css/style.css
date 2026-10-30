@@ -116,9 +116,10 @@ header .btn-menu-open::after { top: 24rem; }
 header.wht .logo a, header.wht .gnb a, header.wht .btn-login { color: #fff; }
 header.wht .btn-menu-open::before, header.wht .btn-menu-open::after { background: #fff; }
 
-#main header.btm-fix { position: absolute; top: calc(100vh - var(--head-height)); background: #231F20; }
-#main header.btm-fix .gnb > li .two-depth { top: auto; bottom: 100%; }
-#main header.btm-fix .gnb > li.on .two-depth { bottom: calc(100% - 30rem); }
+/* 헤더: 처음부터 상단 고정. 첫 화면 위에서는 투명+흰 글자, 스크롤하면 흰 배경 */
+#main header.btm-fix { position: fixed; top: 0; background: transparent; }
+#main header.btm-fix.solid, #main header:not(.btm-fix) { background: #fff; }
+#main header.btm-fix:not(.solid) { background: linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,0) 100%); }
 header.type3 .gnb > li.on { z-index: 1; }
 
 /* sitemap overlay */
@@ -554,3 +555,37 @@ footer .copyright { width: 100%; margin-top: 40rem; font-size: 16rem; line-heigh
   #main .brand-track img { height: 24px; }
 }
 @media (prefers-reduced-motion: reduce) { #main .brand-track { animation: none; } }
+
+
+/* ------------------------------------------------------------
+   첫 화면: 헤더 상단 고정 + 히어로 하단 브랜드 마키 오버레이
+------------------------------------------------------------ */
+#main .sec-visual .visual-txt { top: calc(var(--head-height) + 40rem); }
+#main .brand-strip.in-hero { position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.55) 100%); border: 0; padding: 30px 0 28px; }
+#main .brand-strip.in-hero .brand-label { color: rgba(255,255,255,.55); margin-bottom: 18px; }
+#main .brand-strip.in-hero .brand-track img { height: 28px; opacity: .8; }
+#main .brand-strip.in-hero .brand-track li:hover img { opacity: 1; }
+#main .sec-visual .visual-sub { bottom: 300rem; }
+#main .sec-visual .ctr-box { bottom: 230rem; }
+@media screen and (max-width: 1024px) {
+  #main .sec-visual .visual-txt { top: 26%; }
+  #main .brand-strip.in-hero { padding: 22px 0 20px; }
+  #main .brand-strip.in-hero .brand-label { font-size: 10px; margin-bottom: 12px; }
+  #main .brand-strip.in-hero .brand-track img { height: 22px; }
+  #main .sec-visual .visual-sub { bottom: 200rem; }
+  #main .sec-visual .ctr-box { bottom: 100rem; }
+}
+
+/* WHY HEALING POINT: 제목 + 인증패 가운데 정렬 (문구·01~05 목록 삭제) */
+#main .sec-points { padding: 160rem 0 160rem; }
+#main .sec-points .points-top { flex-direction: column; align-items: center; justify-content: center; gap: 56rem; margin-bottom: 0; text-align: center; }
+#main .sec-points .sec-tit { text-align: center; }
+#main .sec-points .cert-box { margin: 0 auto; max-width: 760rem; width: 100%; text-align: center; }
+#main .sec-points .cert-box img { display: block; width: 100%; height: auto; }
+#main .sec-points .cert-cap { display: block; margin-top: 28rem; font-size: 28rem; font-weight: 700; letter-spacing: -0.5rem; color: #111; background: none; padding: 0; }
+@media screen and (max-width: 1024px) {
+  #main .sec-points { padding: 90rem 0 90rem; }
+  #main .sec-points .points-top { gap: 32rem; }
+  #main .sec-points .cert-box { max-width: 100%; }
+  #main .sec-points .cert-cap { font-size: 18rem; margin-top: 18rem; }
+}

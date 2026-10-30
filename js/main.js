@@ -47,14 +47,10 @@
     if (!down) header.classList.remove('hide');
     lastScroll = y;
 
-    if (isPc()) {
-      if (y > window.innerHeight - 1) header.classList.remove('btm-fix', 'wht');
-      else header.classList.add('btm-fix', 'wht');
-    } else {
-      header.classList.add('btm-fix');
-      if (y > window.innerHeight * 0.6) { header.classList.add('solid'); header.classList.remove('wht'); }
-      else { header.classList.remove('solid'); header.classList.add('wht'); }
-    }
+    // 헤더는 항상 상단 고정: 첫 화면 위에서는 투명(흰 글자), 60% 이상 내려가면 흰 배경
+    header.classList.add('btm-fix');
+    if (y > window.innerHeight * 0.6) { header.classList.add('solid'); header.classList.remove('wht'); }
+    else { header.classList.remove('solid'); header.classList.add('wht'); }
 
     if (quick) quick.classList.toggle('btm', y > 0);
   }
@@ -202,13 +198,13 @@
     introTl
       .fromTo('.sec-visual .ctr-box', { bottom: '0' }, { bottom: '50rem', opacity: 1, duration: 0.7, ease: 'power2.inOut' }, '<')
       .to('header', { opacity: 1, duration: 1, ease: 'power2.inOut' }, '-=2.1')
-      .to('.sec-visual .ctr-box', { bottom: '184rem', opacity: 1, duration: 1, ease: 'power2.inOut' }, '<')
+      .to('.sec-visual .ctr-box', { bottom: '250rem', opacity: 1, duration: 1, ease: 'power2.inOut' }, '<')
       .to('.quick-menu', { right: 0, opacity: 1, duration: 1, ease: 'power2.inOut' }, '-=1.8');
   });
   mm.add('(max-width: 1024px)', () => {
     introTl
       .to('header', { opacity: 1, duration: 0.6, ease: 'power2.inOut' }, '<0.5')
-      .to('.sec-visual .ctr-box', { bottom: '40rem', opacity: 1, duration: 0.6, ease: 'power2.inOut' }, '<0.5')
+      .to('.sec-visual .ctr-box', { bottom: '120rem', opacity: 1, duration: 0.6, ease: 'power2.inOut' }, '<0.5')
       .to('.quick-menu', { right: 0, opacity: 1, duration: 1, ease: 'power2.inOut' }, '<0.2');
   });
 
@@ -240,7 +236,7 @@
 
   /* ---------- why healing point ---------- */
   gsap.fromTo('.sec-points .cert-box', { clipPath: 'inset(0% 0% 100% 0%)', y: 60 }, { clipPath: 'inset(0% 0% 0% 0%)', y: 0, duration: 1.3, ease: 'power2.inOut', scrollTrigger: { trigger: '.sec-points .cert-box', start: 'top 80%' } });
-  gsap.fromTo('.sec-points .point-list li', { y: 80, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.12, duration: 1, ease: 'power2.out', scrollTrigger: { trigger: '.sec-points .point-list', start: 'top 80%' } });
+  if ($('.sec-points .point-list')) gsap.fromTo('.sec-points .point-list li', { y: 80, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.12, duration: 1, ease: 'power2.out', scrollTrigger: { trigger: '.sec-points .point-list', start: 'top 80%' } });
 
   /* ---------- program ---------- */
   mm.add('(min-width: 1025px)', () => {
