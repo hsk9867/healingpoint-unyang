@@ -450,14 +450,14 @@ header .btn-menu-mo, header .btn-login-mo { display: none; }
 #main .sec-now .review-stats .stat strong { display: block; font-family: var(--eng-font); font-size: 44rem; font-weight: 500; line-height: 1; color: #231F20; }
 #main .sec-now .review-stats .stat span { display: block; margin-top: 10rem; font-size: 15rem; color: #6E7072; letter-spacing: -0.3rem; }
 #main .sec-now .swiper { overflow: visible; }
-#main .sec-now .swiper a { position: relative; display: block; padding: 32rem 0 146rem; height: 360rem; border-top: 2px solid #231F20; box-sizing: border-box; }
-#main .sec-now .swiper .tit { color: #231F20; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-#main .sec-now .swiper .desc { margin-top: 20rem; color: #231F20; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-#main .sec-now .swiper .date { position: absolute; left: 0; bottom: 0; padding-right: 32rem; color: #535455; }
-#main .sec-now .swiper .date::before { content: ''; position: absolute; right: 8rem; top: 5rem; width: 7rem; height: 7rem; border-right: 1.5px solid #535455; border-top: 1.5px solid #535455; transform: rotate(45deg); }
-#main .sec-now .swiper .tags { position: absolute; right: 0; bottom: 0; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6rem; max-width: 65%; }
-#main .sec-now .swiper .tags span { padding: 4rem 10rem; font-size: 13rem; letter-spacing: -0.26rem; color: #231F20; background: rgba(255,255,255,.7); border: 1px solid rgba(35,31,32,.15); white-space: nowrap; }
-#main .sec-now .swiper a:hover .tit { text-decoration: underline; }
+#main .sec-now .swiper a, #main .sec-now .review-item a { position: relative; display: block; padding: 32rem 0 146rem; height: 360rem; border-top: 2px solid #231F20; box-sizing: border-box; }
+#main .sec-now .swiper .tit, #main .sec-now .review-item .tit { color: #231F20; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+#main .sec-now .swiper .desc, #main .sec-now .review-item .desc { margin-top: 20rem; color: #231F20; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+#main .sec-now .swiper .date, #main .sec-now .review-item .date { position: absolute; left: 0; bottom: 0; padding-right: 32rem; color: #535455; }
+#main .sec-now .swiper .date::before, #main .sec-now .review-item .date::before { content: ''; position: absolute; right: 8rem; top: 5rem; width: 7rem; height: 7rem; border-right: 1.5px solid #535455; border-top: 1.5px solid #535455; transform: rotate(45deg); }
+#main .sec-now .swiper .tags, #main .sec-now .review-item .tags { position: absolute; right: 0; bottom: 0; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6rem; max-width: 65%; }
+#main .sec-now .swiper .tags span, #main .sec-now .review-item .tags span { padding: 4rem 10rem; font-size: 13rem; letter-spacing: -0.26rem; color: #231F20; background: rgba(255,255,255,.7); border: 1px solid rgba(35,31,32,.15); white-space: nowrap; }
+#main .sec-now .swiper a:hover .tit, #main .sec-now .review-item a:hover .tit { text-decoration: underline; }
 @media screen and (max-width: 1024px) {
   #main .sec-now { padding: 120rem 0; }
   #main .sec-now .list-top { flex-direction: column; align-items: start; margin-bottom: 56rem; }
@@ -466,7 +466,7 @@ header .btn-menu-mo, header .btn-login-mo { display: none; }
   #main .sec-now .review-stats .stat { flex: 0 0 calc(50% - 6rem); box-sizing: border-box; padding: 20rem; }
   #main .sec-now .review-stats .stat strong { font-size: 32rem; }
   #main .sec-now .swiper { margin-left: -20rem; padding: 0 20rem; width: calc(100% + 40rem); }
-  #main .sec-now .swiper a { height: 320rem; padding-bottom: 110rem; }
+  #main .sec-now .swiper a, #main .sec-now .review-item a { height: 320rem; padding-bottom: 110rem; }
   #main .sec-now .swiper-scrollbar { position: relative; left: auto; top: auto; margin: 40rem 0 0; opacity: 1 !important; height: 1px; background: rgba(0,0,0,.12); border-radius: 0; }
   #main .sec-now .swiper-scrollbar-drag { background: #8F6B4A; border-radius: 0; }
 }
@@ -679,3 +679,21 @@ footer .copyright { width: 100%; margin-top: 40rem; font-size: 16rem; line-heigh
   #main .sec-ownthe100 .more-btn span { font-size: 12rem; }
   #main .sec-ownthe100 .row-grid + .row-3 { margin-top: 64rem; }
 }
+
+/* 후기 자동 슬라이드: 등속 이동 */
+#main .sec-now .swiper-wrapper { transition-timing-function: linear !important; }
+#main .sec-now .swiper-slide { height: auto; }
+
+/* 후기: 왼쪽으로 끊김 없이 흐르는 마키 (6개 × 2세트) */
+#main .sec-now .review-marquee { overflow: hidden; margin: 0 -20rem; padding: 0 20rem; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+#main .sec-now .review-track { display: flex; gap: 58rem; width: max-content; animation: reviewRun 60s linear infinite; will-change: transform; }
+#main .sec-now .review-marquee:hover .review-track { animation-play-state: paused; }
+#main .sec-now .review-item { flex: none; width: calc((1776rem - 58rem * 3) / 4); max-width: calc((100vw - 144rem - 58rem * 3) / 4); }
+@keyframes reviewRun { to { transform: translate3d(calc(-50% - 29rem), 0, 0); } }
+@media screen and (max-width: 1024px) {
+  #main .sec-now .review-marquee { margin: 0 -20rem; padding: 0 20rem; }
+  #main .sec-now .review-track { gap: 24rem; animation-duration: 48s; }
+  #main .sec-now .review-item { width: 78vw; max-width: none; }
+  @keyframes reviewRun { to { transform: translate3d(calc(-50% - 12rem), 0, 0); } }
+}
+@media (prefers-reduced-motion: reduce) { #main .sec-now .review-track { animation: none; } }

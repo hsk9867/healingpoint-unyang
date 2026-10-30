@@ -302,13 +302,9 @@
   }
 
   /* ---------- review ---------- */
-  new Swiper('.sec-now .swiper', {
-    slidesPerView: 1.2, spaceBetween: 24, freeMode: true,
-    scrollbar: { el: '.sec-now .swiper-scrollbar', hide: true },
-    breakpoints: { 1024: { slidesPerView: 4, spaceBetween: 58 }, 700: { slidesPerView: 2.5, spaceBetween: 24 } }
-  });
+  // 후기 슬라이드는 CSS 마키(.review-track)로 동작
   gsap.fromTo('.sec-now .review-stats .stat', { y: 80, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.1, duration: 1, ease: 'power2.inOut', scrollTrigger: { trigger: '.sec-now .review-stats', start: 'top 80%' } });
-  gsap.fromTo('.sec-now .swiper a', { y: isPc() ? 350 : 150, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.1, duration: 1.2, ease: 'power2.inOut', scrollTrigger: { trigger: '.sec-now .swiper', start: 'top 80%' } });
+  gsap.fromTo('.sec-now .review-marquee', { y: isPc() ? 120 : 60, opacity: 0 }, { y: 0, opacity: 1, duration: 1.2, ease: 'power2.inOut', scrollTrigger: { trigger: '.sec-now .review-marquee', start: 'top 85%' } });
 
   /* ---------- info ---------- */
   gsap.fromTo('.sec-info .info-list > div', { y: 60, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.1, duration: 0.9, ease: 'power2.out', scrollTrigger: { trigger: '.sec-info .info-list', start: 'top 80%' } });
