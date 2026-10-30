@@ -333,7 +333,7 @@
     }));
     let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => build(($('.sec-now .review-tabs button.on') || {}).dataset?.filter || 'all'), 250); });
   })();
-  gsap.fromTo('.sec-now .review-stats .stat', { y: 80, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.1, duration: 1, ease: 'power2.inOut', scrollTrigger: { trigger: '.sec-now .review-stats', start: 'top 80%' } });
+  if ($('.sec-now .review-stats')) gsap.fromTo('.sec-now .review-stats .stat', { y: 80, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.1, duration: 1, ease: 'power2.inOut', scrollTrigger: { trigger: '.sec-now .review-stats', start: 'top 80%' } });
   gsap.fromTo('.sec-now .review-marquee', { y: isPc() ? 120 : 60, opacity: 0 }, { y: 0, opacity: 1, duration: 1.2, ease: 'power2.inOut', scrollTrigger: { trigger: '.sec-now .review-marquee', start: 'top 85%' } });
 
   /* ---------- info ---------- */

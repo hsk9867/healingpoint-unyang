@@ -717,3 +717,13 @@ footer .copyright { width: 100%; margin-top: 40rem; font-size: 16rem; line-heigh
   #main .sec-now .review-item { margin-right: 24rem; }
   @keyframes reviewRun { to { transform: translate3d(-50%, 0, 0); } }
 }
+
+/* 후기 제목(한글) + 통계 삭제 후 간격 */
+#main .sec-now .sec-tit .tit.ko-tit { font-family: "Pretendard", sans-serif; font-weight: 700; letter-spacing: -2rem; text-transform: none; font-size: 64rem; line-height: 1.2; }
+#main .sec-now .list-top { margin-bottom: 56rem; }
+#main .sec-now .review-tabs { margin-bottom: 48rem; }
+@media screen and (max-width: 1024px) {
+  #main .sec-now .sec-tit .tit.ko-tit { font-size: 34rem; letter-spacing: -1rem; }
+  #main .sec-now .list-top { margin-bottom: 32rem; }
+  #main .sec-now .review-tabs { margin-bottom: 28rem; }
+}
