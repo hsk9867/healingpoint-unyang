@@ -727,3 +727,22 @@ footer .copyright { width: 100%; margin-top: 40rem; font-size: 16rem; line-heigh
   #main .sec-now .list-top { margin-bottom: 32rem; }
   #main .sec-now .review-tabs { margin-bottom: 28rem; }
 }
+
+/* 후기: 흰 배경 + 회색 카드, 제목 포인트 */
+#main .sec-now { background: #fff; }
+#main .sec-now .sec-tit .tit .pt { font-style: normal; color: var(--brandColor); position: relative; }
+#main .sec-now .sec-tit .tit .pt::after { content: ''; position: absolute; left: 0; right: 0; bottom: 4rem; height: 10rem; background: rgba(186,141,101,.22); z-index: -1; }
+#main .sec-now .review-item a { background: #F3F2F0; border-top: 0; border-radius: 12rem; padding: 28rem 28rem 110rem; height: 380rem; transition: background .3s ease, transform .3s ease; }
+#main .sec-now .review-item a:hover { background: #ECEAE6; }
+#main .sec-now .review-item .date { left: 28rem; bottom: 26rem; }
+#main .sec-now .review-item .tags { right: 28rem; bottom: 26rem; max-width: 60%; }
+#main .sec-now .review-item .tags span { background: #fff; border-color: rgba(35,31,32,.12); }
+#main .sec-now .review-tabs button { border-color: rgba(35,31,32,.2); }
+#main .sec-now .review-marquee { -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
+@media screen and (max-width: 1024px) {
+  #main .sec-now .review-item a { padding: 22rem 20rem 96rem; height: 330rem; }
+  #main .sec-now .review-item .date { left: 20rem; bottom: 20rem; }
+  #main .sec-now .review-item .tags { right: 20rem; bottom: 20rem; }
+}
+/* NASM 인증패: 그림자 제거 */
+#main .sec-points .cert-box img { box-shadow: none !important; }
