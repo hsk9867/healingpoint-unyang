@@ -632,3 +632,23 @@ footer .copyright { width: 100%; margin-top: 40rem; font-size: 16rem; line-heigh
 #main .sec-ownthe100 .row-2b > div:nth-child(2) { width: 59%; }
 #main .sec-ownthe100 .row-2b .bg { object-position: center 40%; }
 @media screen and (max-width: 1024px) { #main .sec-ownthe100 .row-2b > div { width: 100%; } }
+
+
+/* 시설 안내: 버튼·큰 제목 없이 사진 + 좌측 하단 작은 라벨 */
+#main .sec-ownthe100 .cont-box .cap { position: relative; z-index: 1; display: flex; align-items: flex-end; height: 400rem; padding: 32rem 36rem; box-sizing: border-box; pointer-events: none; }
+#main .sec-ownthe100 .cont-box .cap span { display: inline-block; padding: 7rem 14rem; font-family: var(--eng-font); font-size: 14rem; font-weight: 500; letter-spacing: 2rem; text-transform: uppercase; color: #fff; border: 1px solid rgba(255,255,255,.55); background: rgba(0,0,0,.28); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+#main .sec-ownthe100 .cont-box .bg { filter: brightness(.82); }
+#main .sec-ownthe100 .cont-box:hover .bg { transform: scale(1.05); }
+#main .sec-ownthe100 .row-1 > .box-2 .bg { object-position: center; }
+#main .sec-ownthe100 .row-2c > div:nth-child(1) { width: 59%; }
+#main .sec-ownthe100 .row-2c > div:nth-child(2) { width: 41%; }
+#main .sec-ownthe100 .row-2c .bg { object-position: center 45%; }
+#main .sec-ownthe100 .row-2c + .row-3, #main .sec-ownthe100 .row-2c { margin-bottom: 0; }
+#main .sec-ownthe100 .row-3 { margin-top: 160rem; }
+@media screen and (max-width: 1024px) {
+  #main .sec-ownthe100 .cont-box .cap { height: 300rem; padding: 20rem; }
+  #main .sec-ownthe100 .cont-box .cap span { font-size: 12rem; padding: 5rem 10rem; }
+  #main .sec-ownthe100 .row-1 > .box-2 { display: block; }
+  #main .sec-ownthe100 .row-2c > div { width: 100%; }
+  #main .sec-ownthe100 .row-3 { margin-top: 64rem; }
+}

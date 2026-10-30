@@ -289,7 +289,7 @@
       gsap.fromTo(target, { y: 150, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: 'power2.inOut', scrollTrigger: { trigger: target, start: 'top bottom' } });
     });
   });
-  gsap.fromTo('.sec-ownthe100 .spec-list li', { y: 60, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.08, duration: 0.9, ease: 'power2.out', scrollTrigger: { trigger: '.sec-ownthe100 .spec-list', start: 'top 80%' } });
+  if ($('.sec-ownthe100 .spec-list')) gsap.fromTo('.sec-ownthe100 .spec-list li', { y: 60, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.08, duration: 0.9, ease: 'power2.out', scrollTrigger: { trigger: '.sec-ownthe100 .spec-list', start: 'top 80%' } });
 
   /* ---------- review ---------- */
   new Swiper('.sec-now .swiper', {
