@@ -34,6 +34,32 @@
   $$('.sec-tit .tit').forEach(tit => {
     const parts = tit.innerHTML.split(/<br\s*\/?>/i);
     tit.innerHTML = parts.map(p => `<span class="line"><span>${p.trim()}</span></span>`).join('');
+    // 단어 단위 분리(강조 <em>/<strong> 태그는 유지)
+    let idx = 0;
+    const wrapWords = node => {
+      Array.from(node.childNodes).forEach(n => {
+        if (n.nodeType === 3) {
+          const frag = document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(part => {
+            if (!part) return;
+            if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(' ')); return; }
+            const w = document.createElement('span'); w.className = 'w';
+            const wi = document.createElement('span'); wi.className = 'wi'; wi.textContent = part; wi.style.setProperty('--i', idx++);
+            w.appendChild(wi); frag.appendChild(w);
+          });
+          node.replaceChild(frag, n);
+        } else if (n.nodeType === 1) {
+          // 태그 안의 글자도 같은 방식으로 감싸되 태그는 그대로 둠
+          if (n.classList && (n.classList.contains('pt') || n.classList.contains('mk'))) {
+            const w = document.createElement('span'); w.className = 'w';
+            const wi = document.createElement('span'); wi.className = 'wi'; wi.style.setProperty('--i', idx++);
+            n.parentNode.insertBefore(w, n); w.appendChild(wi); wi.appendChild(n);
+          } else wrapWords(n);
+        }
+      });
+    };
+    $$('.line > span', tit).forEach(wrapWords);
+    tit.classList.add('split');
   });
 
   /* ---------- header ---------- */
@@ -126,7 +152,7 @@
 
   /* ---------- visual swiper ---------- */
   let isPaused = false, slideTimer = null, progressTween = null, pausedProgress = 0;
-  const DUR = 1.8;
+  const DUR = 4.5;
   const visualSwiper = new Swiper('.sec-visual .swiper', {
     parallax: true, speed: 700, allowTouchMove: false, loop: true, observer: true, observeParents: true,
     on: {
@@ -228,9 +254,14 @@
     const ls = $$('.tit .line span', target);
     const sub = $$('.txt', target);
     const btn = target.closest('section') && $('.btn-more', target.closest('section'));
-    const tl = gsap.timeline({ scrollTrigger: { trigger: target, start: 'top 80%' } })
-      .fromTo(ls, { yPercent: 100 }, { yPercent: 0, stagger: 0.2, duration: 1.1, ease: 'power2.inOut' })
-      .fromTo(sub, { yPercent: 90, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 1, ease: 'power2.inOut' }, '-=0.7');
+    const words = $$('.tit .wi', target);
+    const tl = gsap.timeline({ scrollTrigger: { trigger: target, start: 'top 80%' }, onComplete: () => target.classList.add('in') });
+    if (words.length) {
+      tl.fromTo(words, { yPercent: 115, rotate: 8, filter: 'blur(8px)', opacity: 0 }, { yPercent: 0, rotate: 0, filter: 'blur(0px)', opacity: 1, stagger: 0.07, duration: 1.1, ease: 'expo.out', onComplete: () => target.classList.add('in') });
+    } else {
+      tl.fromTo(ls, { yPercent: 100 }, { yPercent: 0, stagger: 0.2, duration: 1.1, ease: 'power2.inOut' });
+    }
+    tl.fromTo(sub, { yPercent: 60, opacity: 0, filter: 'blur(6px)' }, { yPercent: 0, opacity: 1, filter: 'blur(0px)', duration: 1, ease: 'power2.out' }, '-=0.7');
     if (btn) tl.fromTo(btn, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power2.inOut' }, '-=0.7');
   });
 
