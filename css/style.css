@@ -589,3 +589,7 @@ footer .copyright { width: 100%; margin-top: 40rem; font-size: 16rem; line-heigh
   #main .sec-points .cert-box { max-width: 100%; }
   #main .sec-points .cert-cap { font-size: 18rem; margin-top: 18rem; }
 }
+
+/* WHY 제목 삭제 후 여백 조정 */
+#main .sec-points { padding: 120rem 0 120rem; }
+@media screen and (max-width: 1024px) { #main .sec-points { padding: 70rem 0 70rem; } }
