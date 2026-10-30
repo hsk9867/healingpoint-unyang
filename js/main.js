@@ -303,6 +303,36 @@
 
   /* ---------- review ---------- */
   // 후기 슬라이드는 CSS 마키(.review-track)로 동작
+  (function () {
+    const track = $('#reviewTrack'), source = $('#reviewSource'), marquee = $('.sec-now .review-marquee');
+    if (!track || !source || !marquee) return;
+    const base = Array.from(source.children).map(el => el.cloneNode(true));
+    function build(filter) {
+      const items = base.filter(el => filter === 'all' || el.dataset.type === filter);
+      if (!items.length) return;
+      track.innerHTML = '';
+      const makeGroup = () => {
+        const g = document.createElement('div'); g.className = 'review-group';
+        items.forEach(el => g.appendChild(el.cloneNode(true)));
+        return g;
+      };
+      // 그룹 하나가 화면 폭 이상이 되도록 반복한 뒤, 같은 그룹을 한 번 더 붙여 -50% 루프
+      const g1 = makeGroup(); track.appendChild(g1);
+      let guard = 0;
+      while (g1.scrollWidth < marquee.clientWidth * 1.2 && guard < 6) { items.forEach(el => g1.appendChild(el.cloneNode(true))); guard++; }
+      track.appendChild(g1.cloneNode(true));
+      const perItem = 9; // 아이템당 초(속도 일정 유지)
+      track.style.animation = 'none'; void track.offsetWidth; track.style.animation = '';
+      track.style.animationDuration = Math.max(24, g1.children.length * perItem) + 's';
+    }
+    build('all');
+    $$('.sec-now .review-tabs button').forEach(btn => btn.addEventListener('click', () => {
+      $$('.sec-now .review-tabs button').forEach(b => { b.classList.toggle('on', b === btn); b.setAttribute('aria-selected', b === btn ? 'true' : 'false'); });
+      build(btn.dataset.filter);
+      if (window.ScrollTrigger) ScrollTrigger.refresh();
+    }));
+    let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => build(($('.sec-now .review-tabs button.on') || {}).dataset?.filter || 'all'), 250); });
+  })();
   gsap.fromTo('.sec-now .review-stats .stat', { y: 80, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.1, duration: 1, ease: 'power2.inOut', scrollTrigger: { trigger: '.sec-now .review-stats', start: 'top 80%' } });
   gsap.fromTo('.sec-now .review-marquee', { y: isPc() ? 120 : 60, opacity: 0 }, { y: 0, opacity: 1, duration: 1.2, ease: 'power2.inOut', scrollTrigger: { trigger: '.sec-now .review-marquee', start: 'top 85%' } });
 

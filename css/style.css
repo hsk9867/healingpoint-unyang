@@ -697,3 +697,23 @@ footer .copyright { width: 100%; margin-top: 40rem; font-size: 16rem; line-heigh
   @keyframes reviewRun { to { transform: translate3d(calc(-50% - 12rem), 0, 0); } }
 }
 @media (prefers-reduced-motion: reduce) { #main .sec-now .review-track { animation: none; } }
+
+
+/* 후기: PT / 헬스 필터 탭 + 그룹 마키 */
+#main .sec-now .review-tabs { display: flex; gap: 8rem; margin-bottom: 40rem; }
+#main .sec-now .review-tabs button { padding: 10rem 22rem; border: 1px solid rgba(35,31,32,.25); border-radius: 999px; font-size: 15rem; font-weight: 600; color: #535455; background: transparent; cursor: pointer; transition: all .25s ease; letter-spacing: -0.3rem; }
+#main .sec-now .review-tabs button:hover { border-color: #231F20; color: #231F20; }
+#main .sec-now .review-tabs button.on { background: #231F20; border-color: #231F20; color: #fff; }
+#main .sec-now .review-track { display: flex; gap: 0; }
+#main .sec-now .review-group { display: flex; flex: none; }
+#main .sec-now .review-item { margin-right: 58rem; }
+#main .sec-now .rv-type { display: inline-block; margin-bottom: 12rem; padding: 3rem 9rem; font-size: 12rem; font-weight: 700; letter-spacing: -0.2rem; color: #fff; background: #8F6B4A; }
+#main .sec-now .review-item[data-type="gym"] .rv-type { background: #231F20; }
+#main .sec-now .review-item a { padding-top: 28rem; }
+@keyframes reviewRun { to { transform: translate3d(-50%, 0, 0); } }
+@media screen and (max-width: 1024px) {
+  #main .sec-now .review-tabs { margin-bottom: 28rem; gap: 6rem; }
+  #main .sec-now .review-tabs button { padding: 8rem 14rem; font-size: 13rem; }
+  #main .sec-now .review-item { margin-right: 24rem; }
+  @keyframes reviewRun { to { transform: translate3d(-50%, 0, 0); } }
+}
